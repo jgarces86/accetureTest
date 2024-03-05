@@ -1,0 +1,15 @@
+mat-form-field {
+    width: 100%;
+}
+
+mat-dialog-content {
+    overflow: hidden;
+}
+
+mat-dialog-actions {
+    justify-content: flex-end;
+}
+
+.error {
+    color: #f44336;
+}

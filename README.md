@@ -1,27 +1,72 @@
-# AccentureTestApp
+# Proyecto con json-server
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+Este proyecto utiliza json-server para simular un servidor RESTful con datos mockeados. json-server es una herramienta útil para desarrolladores que necesitan prototipar rápidamente una API REST durante el desarrollo de su aplicación.
 
-## Development server
+## Configuración
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. **Instalación de dependencias**: Antes de comenzar, asegúrate de tener Node.js y npm instalados en tu sistema. Puedes instalar json-server ejecutando el siguiente comando:
 
-## Code scaffolding
+   ```bash
+   npm install -g json-server
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. **Ejecución del proyecto**: ejecuta el siguiente comando para la ejecución del proyecto:
 
-## Build
+   ```bash
+   npm run start:jsonserver
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Endpoints
 
-## Running unit tests
+1. **GET Users**: Endpoint para obtener todos los usuarios:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   ```bash
+   http://localhost:3000/users
 
-## Running end-to-end tests
+2. **GET Tasks**: Endpoint para obtener todas las tareas:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   ```bash
+   http://localhost:3000/tasks
 
-## Further help
+3. **GET Tasks by User**: Endpoint para obtener todas las tareas de un usuario:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+   ```bash
+   http://localhost:3000/tasks?userId=1
+
+4. **POST User**: Endpoint para agregar un nuevo usuario:
+
+   ```bash
+   {
+      "name": "Pepito",
+      "lastname": "Perez",
+      "email": "pepito@email.com"
+   }
+
+   http://localhost:3000/users
+
+5. **POST Task**: Endpoint para agregar una nueva tarea:
+
+   ```bash
+    {
+        "title": "Comprar pan",
+        "description": "Ir al supermercado",
+        "completed": false,
+        "userId": 2
+    }
+
+   http://localhost:3000/tasks
+
+6. **PUT Task**: Endpoint para editar una tarea:
+
+   ```bash
+    {
+        "title": "Comprar pan",
+        "description": "Ir al supermercado",
+        "completed": false,
+        "userId": 2
+    }
+
+   http://localhost:3000/tasks/1
+
+7. **DELETE Task**: Endpoint para eliminar una tarea:
+
+   ```bash
+   http://localhost:3000/tasks/1

@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>{{ isEditing ? 'Update Task' : 'Create Task' }}</h2>
+<mat-dialog-content>
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title">
+            <mat-error *ngIf="taskForm.get('title')?.hasError('required')">Este campo es obligatorio.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+            <mat-error *ngIf="taskForm.get('description')?.hasError('required')">Este campo es obligatorio.</mat-error>
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="null">Cancel</button>
+    <button mat-button [mat-dialog-close]="taskForm.value" cdkFocusInitial>{{ isEditing ? 'Update' : 'Create'
+        }}</button>
+</mat-dialog-actions>
